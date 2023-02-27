@@ -1,73 +1,75 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { Button } from "../../UI/Button";
-import { addtoBasket } from "../../../store/basket/basketReducer";
-import { useDispatch } from "react-redux";
-import AddIcon from "@mui/icons-material/Add";
-import { TextField } from "@mui/material";
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import { useDispatch } from 'react-redux'
+import AddIcon from '@mui/icons-material/Add'
+import { TextField } from '@mui/material'
+import { Button } from '../../UI/Button'
+import { addtoBasket } from '../../../store/basket/thunk'
 
 function MealForm({ id, title, price }) {
-  const dispatch = useDispatch();
-  const [amount, setAmount] = useState(1);
+    const dispatch = useDispatch()
+    const [amount, setAmount] = useState(1)
 
-  const amoutChangeHandler = (event) => {
-    setAmount(event.target.value);
-  };
+    const amoutChangeHandler = (event) => {
+        setAmount(event.target.value)
+    }
 
-  const submitHandler = (event) => {
-    event.preventDefault();
-    const basketItem = {
-      id,
-      price,
-      title,
-      amount,
-    };
-    dispatch(addtoBasket(basketItem));
-  };
+    const submitHandler = (event) => {
+        event.preventDefault()
+        const basketItem = {
+            id,
+            price,
+            title,
+            amount,
+        }
+        dispatch(addtoBasket(basketItem))
+    }
 
-  return (
-    <StyledForm>
-      <Container>
-        <StyledLabel htmlFor={id}>Amount</StyledLabel>
+    return (
+        <StyledForm>
+            <Container>
+                <StyledLabel htmlFor={id}>Amount:</StyledLabel>
 
-        <StyledText
-          id={id}
-          type="number"
-          value={amount}
-          onChange={amoutChangeHandler}
-          InputLabelProps={{
-            shrink: true,
-          }}
-          size="small"
-          inputProps={{ min: 1, max: 5 }}
-        />
-      </Container>
+                <StyledText
+                    id={id}
+                    type="number"
+                    value={amount}
+                    onChange={amoutChangeHandler}
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    size="small"
+                    inputProps={{ min: 1, max: 5 }}
+                />
+            </Container>
 
-      <Button onClick={submitHandler} variant="outlined" styles="rounded">
-        <AddIcon />
-        Add
-      </Button>
-    </StyledForm>
-  );
+            <Button onClick={submitHandler} variant="outlined" styles="rounded">
+                <AddIcon />
+                Add
+            </Button>
+        </StyledForm>
+    )
 }
 
-export default MealForm;
+export default MealForm
 
 const StyledText = styled(TextField)(() => ({
-  marginRight: "10px",
-}));
+    marginRight: '10px',
+    background: '#fff3f3',
+}))
 
-const Container = styled("div")(() => ({
-  marginBottom: "12px",
-}));
-const StyledLabel = styled("label")(() => ({
-  fontWeight: "600",
-  fontSize: "18px",
-  lineHeight: "27px",
-  color: "#222222",
-}));
-const StyledForm = styled("form")(() => ({
-  display: "flex",
-  alignItems: " flex-end",
-  flexDirection: "column",
-}));
+const Container = styled('div')(() => ({
+    marginBottom: '12px',
+}))
+const StyledLabel = styled('label')(() => ({
+    fontWeight: '600',
+    fontSize: '18px',
+    lineHeight: '27px',
+    color: '#d1d0d0',
+    marginRight: '10px',
+}))
+const StyledForm = styled('form')(() => ({
+    display: 'flex',
+    alignItems: ' flex-end',
+    flexDirection: 'column',
+}))
