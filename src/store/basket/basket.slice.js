@@ -1,13 +1,6 @@
-// import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-// import { fetchApi } from '../../lib/fetchAPI'
 import { createSlice } from '@reduxjs/toolkit'
 import { getBasket } from './getBasket'
-import {
-    addtoBasket,
-    deleteBasketItem,
-    // getBasket,
-    updeteBasketItem,
-} from './thunk'
+import { addtoBasket, deleteBasketItem, updeteBasketItem } from './thunk'
 
 export const basketActionsTypes = {
     ADD_ITEM_SUCCESS: 'ADD_ITEM_SUCCESS',
