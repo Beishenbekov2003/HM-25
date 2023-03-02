@@ -20,16 +20,15 @@ const Basket = ({ onClose, open }) => {
 
     const decrementAmount = (id, amount) => {
         if (amount > 1) {
-            dispatch(updeteBasketItem({ amount: amount - 1, id }))
+            dispatch(updeteBasketItem({ amount: +amount - 1, id }))
         } else {
             dispatch(deleteBasketItem(id))
         }
     }
 
     const incrementAmount = (id, amount) => {
-        dispatch(updeteBasketItem({ amount: amount + 1, id }))
+        dispatch(updeteBasketItem({ amount: +amount + 1, id }))
     }
-
     const orderSubmitHandler = async () => {
         try {
             await dispatch(submitOrder({ orderData: { items } })).unwrap()

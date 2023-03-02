@@ -20,7 +20,7 @@ function MealForm({ id, title, price }) {
             id,
             price,
             title,
-            amount,
+            amount: +amount,
         }
         dispatch(addtoBasket(basketItem))
     }
@@ -33,7 +33,7 @@ function MealForm({ id, title, price }) {
                 <StyledText
                     id={id}
                     type="number"
-                    value={amount}
+                    value={+amount}
                     onChange={amoutChangeHandler}
                     InputLabelProps={{
                         shrink: true,
