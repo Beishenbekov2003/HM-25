@@ -2,6 +2,7 @@ import { styled } from '@mui/material/styles'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getMeals } from '../../store/meals/meals-thunk'
+// import { getMeals } from '../../store/meals/meals-thunk'
 import MealItem from './meal-Item/MealItem'
 
 export const Meals = () => {

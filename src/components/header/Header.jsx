@@ -15,7 +15,6 @@ export const Header = ({ onShowBasket }) => {
     useEffect(() => {
         dispatch(getBasket())
     }, [dispatch])
-
     const calculateTotalAmount = () => {
         const sum = items.reduce((s, item) => s + item.amount, 0)
         return sum
