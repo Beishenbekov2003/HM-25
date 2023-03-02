@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { axiosInstace } from '../../lib/fetchAPI'
+import { axiosInstace } from '../../lib/axiosInstace'
 
 export const getMeals = createAsyncThunk(
     'meals/getMeals',
